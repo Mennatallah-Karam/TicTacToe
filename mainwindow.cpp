@@ -28,7 +28,7 @@
 #include "game_or_history.h"
 #include "ui_game_or_history.h"
 
-#include "GameManager.h"
+#include "gamemanager.h"
 
 
 
