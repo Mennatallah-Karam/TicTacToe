@@ -1,4 +1,4 @@
-#include "gamemanager.h"
+#include "GameManager.h"
 GameManager gameManager;
 
 GameManager::GameManager(QObject *parent) : QObject(parent)
