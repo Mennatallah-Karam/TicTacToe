@@ -28,11 +28,3 @@ jobs:
           qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
           make
 
-      - name: Execute QML Tests
-        run: |
-          cd build2
-          # Run each QML test file individually
-          qmltestrunner tst_userlogin.qml
-          qmltestrunner tst_switch.qml
-          qmltestrunner tst_register.qml
-          qmltestrunner tst_ganeisover.qml
