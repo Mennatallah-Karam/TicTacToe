@@ -10,7 +10,7 @@
 #include <QSqlQuery>
 #include <QSqlError>
 
-#include "GameManager.h"
+#include "gamemanager.h"
 
 game_or_history::game_or_history(QWidget *parent)
     : QDialog(parent)
