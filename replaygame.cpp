@@ -1,4 +1,4 @@
-#include "ReplayGame.h"
+#include "replaygame.h"
 //QVector<QString> moves;
 ReplayGame::ReplayGame(QWidget *parent) : QDialog(parent), currentMoveIndex(0)
 {
