@@ -5,7 +5,7 @@
 #include <QDialog>
 #include <QWidget>
 #include <QListWidgetItem>
-#include "gamemanager.h"
+#include "GameManager.h"
 
 
 
