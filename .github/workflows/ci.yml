@@ -4,29 +4,37 @@ on: push
 
 jobs:
   build:
-    name: Build Qt Project
+    name: Build and Test Qt Project
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Qt
-        run: sudo apt-get update
+      - name: Set up dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxcb-xinerama0 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-image0 libxcb-render-util0 libxcb-xfixes0 libxkbcommon-x11-0
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
           version: '6.7.0'
           modules: 'qtmultimedia'
-          
+
+      - name: Add Qt to PATH
+        run: echo "$HOME/Qt/6.7.0/gcc_64/bin" >> $GITHUB_PATH
+
+      - name: Create build directory
+        run: mkdir build2
+
       - name: Build project
         run: |
-          mkdir build2
           cd build2
           export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
           qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
           make
+
       - name: Execute QML Tests
         run: |
           cd build2
@@ -34,4 +42,4 @@ jobs:
           qmltestrunner ../tst_userlogin.qml
           qmltestrunner ../tst_switch.qml
           qmltestrunner ../tst_register.qml
-          qmltestrunner ../tst_ganeisover.qml         
+          qmltestrunner ../tst_ganeisover.qml
