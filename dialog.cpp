@@ -1,5 +1,5 @@
 #include "dialog.h"
-#include "ui_Dialog.h"
+#include "ui_dialog.h"
 #include <QApplication>
 #include <QWidget>
 #include <QPushButton>
