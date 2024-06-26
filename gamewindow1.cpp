@@ -25,7 +25,7 @@
 #include <QTextEdit>
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "gamemanager.h"
+#include "GameManager.h"
 QVector<QString> moves;
 gameWindow1::gameWindow1(QWidget *parent)
     : QDialog(parent)
