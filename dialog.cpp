@@ -1,4 +1,4 @@
-#include "Dialog.h"
+#include "dialog.h"
 #include "ui_Dialog.h"
 #include <QApplication>
 #include <QWidget>
