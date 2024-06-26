@@ -37,4 +37,4 @@ jobs:
           qmltestrunner tst_reset.qml
           qmltestrunner tst_register.qml
           qmltestrunner tst_ganeisover.qml
-          
+        
