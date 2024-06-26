@@ -1,4 +1,4 @@
-name: Build Qt Project
+name: Build and Test Qt Project
 
 on: push
 
@@ -20,9 +20,16 @@ jobs:
           version: '6.7.0'
           modules: 'qtmultimedia'
 
-      - name: Add Qt to PATH
-        run: echo "$HOME/Qt/6.7.0/gcc_64/bin" >> $GITHUB_PATH
-
+      - name: Execute QML Tests
+        run: |
+          cd build2
+          # Run each QML test file individually
+          qmltestrunner tst_userlogin.qml
+          qmltestrunner tst_switch.qml
+          qmltestrunner tst_reset.qml
+          qmltestrunner tst_register.qml
+          qmltestrunner tst_ganeisover.qml
+          
       - name: Build project
         run: |
           mkdir build2
@@ -30,3 +37,5 @@ jobs:
           export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
           qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
           make
+
+
