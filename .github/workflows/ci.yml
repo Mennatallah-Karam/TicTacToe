@@ -27,4 +27,3 @@ jobs:
           export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
           qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
           make
-
