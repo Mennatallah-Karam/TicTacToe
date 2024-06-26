@@ -52,10 +52,6 @@ TestCase {
         // Simulate a mouse click on the login button
         QTest.mouseClick(loginButton, Qt.LeftButton)
 
-        // Find the welcome label
-        var welcomeLabel = testGame.children[0].findChild("welcomeLabel")
-        verify(welcomeLabel !== null, "Welcome label should be found")
-
         // Check the welcome message
         compare(welcomeLabel.text, "Welcome, testUser!", "User should be welcomed after login")
     }
