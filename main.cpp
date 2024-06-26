@@ -31,7 +31,7 @@
 #include "ai_or_2.h"         // Assuming this header exists
 #include "game_history.h"    // Assuming this header exists
 #include "game_or_history.h" // Assuming this header exists
-#include "gameWindow1.h"      // Assuming this header exists
+#include "gamewindow1.h"      // Assuming this header exists
 #include "register_dialog.h" // Assuming this header exists
 
 #include <QApplication>
