@@ -2,7 +2,7 @@
 #include "ui_easy_ai.h"
 #include <QMessageBox>
 #include <limits>
-#include "gamemanager.h"
+#include "GameManager.h"
 #include <QStringList>
 #include <QSqlDatabase>
 #include <QSqlQuery>
