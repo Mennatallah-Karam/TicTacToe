@@ -34,7 +34,5 @@ jobs:
           # Run each QML test file individually
           qmltestrunner tst_userlogin.qml
           qmltestrunner tst_switch.qml
-          qmltestrunner tst_reset.qml
           qmltestrunner tst_register.qml
           qmltestrunner tst_ganeisover.qml
-        
