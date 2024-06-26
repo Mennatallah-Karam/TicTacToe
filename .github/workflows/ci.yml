@@ -19,6 +19,14 @@ jobs:
         with:
           version: '6.7.0'
           modules: 'qtmultimedia'
+          
+      - name: Build project
+        run: |
+          mkdir build2
+          cd build2
+          export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
+          qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
+          make
 
       - name: Execute QML Tests
         run: |
@@ -30,12 +38,5 @@ jobs:
           qmltestrunner tst_register.qml
           qmltestrunner tst_ganeisover.qml
           
-      - name: Build project
-        run: |
-          mkdir build2
-          cd build2
-          export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
-          qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
-          make
 
 
