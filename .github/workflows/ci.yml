@@ -38,5 +38,3 @@ jobs:
           qmltestrunner tst_register.qml
           qmltestrunner tst_ganeisover.qml
           
-
-
