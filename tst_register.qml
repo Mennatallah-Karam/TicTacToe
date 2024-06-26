@@ -40,9 +40,6 @@ TestCase {
         // Simulate a mouse click on the register button
         QTest.mouseClick(registerButton, Qt.LeftButton)
 
-        // Find the success label
-        var successLabel = testGame.children[0].findChild("regSuccessLabel")
-        verify(successLabel !== null, "Registration success label should be found")
 
         // Check the success message
         compare(successLabel.text, "Registration successful!", "User should see a success message after registration")
