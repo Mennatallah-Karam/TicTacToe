@@ -40,7 +40,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 
-#include "GameManager.h"
+#include "gamemanager.h"
 
 
 
