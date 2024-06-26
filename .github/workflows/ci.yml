@@ -34,4 +34,4 @@ jobs:
           qmltestrunner ../tst_userlogin.qml
           qmltestrunner ../tst_switch.qml
           qmltestrunner ../tst_register.qml
-          qmltestrunner ../tst_ganeisover.qml          
+          qmltestrunner ../tst_ganeisover.qml         
