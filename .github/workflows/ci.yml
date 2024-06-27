@@ -40,9 +40,9 @@ jobs:
           # Start Xvfb in the background
           Xvfb :99 -screen 0 1024x768x16 &
           export DISPLAY=:99
-          cd build2
           # Run each QML test file individually
-          qmltestrunner ../tst_userlogin.qml
-          qmltestrunner ../tst_switch.qml
-          qmltestrunner ../tst_register.qml
-          qmltestrunner ../tst_ganeisover.qml
+          qmltestrunner tst_userlogin.qml
+          qmltestrunner tst_switch.qml
+          qmltestrunner tst_register.qml
+          qmltestrunner tst_ganeisover.qml
+        working-directory: ${{ github.workspace }}
