@@ -28,8 +28,9 @@ TestCase {
             }
         }
 
-
         // Check the game over message
+        var gameOverLabel = testGame.children[0].findChild("gameOverLabel")
+        verify(gameOverLabel !== null, "Game Over label should be found")
         compare(gameOverLabel.text, "Game Over!", "User should see a game over message when the game ends")
     }
 }
