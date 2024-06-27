@@ -32,17 +32,14 @@ jobs:
         run: |
           cd build2
           export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
-          qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
+          qmake ../qmakewithsounds.pro  # Replace with your actual .pro file name
           make
 
       - name: Execute QML Tests
         run: |
-          # Start Xvfb in the background
-          Xvfb :99 -screen 0 1024x768x16 &
-          export DISPLAY=:99
-          # Run each QML test file individually
-          qmltestrunner tst_userlogin.qml
-          qmltestrunner tst_switch.qml
-          qmltestrunner tst_register.qml
-          qmltestrunner tst_ganeisover.qml
+          xvfb-run -s "-screen 0 1024x768x16" qmltestrunner ../tst_userlogin.qml
+          xvfb-run -s "-screen 0 1024x768x16" qmltestrunner ../tst_switch.qml
+          xvfb-run -s "-screen 0 1024x768x16" qmltestrunner ../tst_reset.qml
+          xvfb-run -s "-screen 0 1024x768x16" qmltestrunner ../tst_register.qml
+          xvfb-run -s "-screen 0 1024x768x16" qmltestrunner ../tst_ganeisover.qml
         working-directory: ${{ github.workspace }}
