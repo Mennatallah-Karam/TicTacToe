@@ -43,17 +43,14 @@ jobs:
 
       - name: Run QML Tests
         run: |
-          echo "Running QML Tests"
-          XVFB_DISPLAY=":99"
-          export DISPLAY=$XVFB_DISPLAY
-          Xvfb $XVFB_DISPLAY -screen 0 1024x768x16 &
-          sleep 5 # Wait for Xvfb to start
-          for test_file in $GITHUB_WORKSPACE/tst_*.qml; do
-            echo "Running test $test_file"
-            qmltestrunner $test_file
-            if [ $? -ne 0 ]; then
-              echo "Test $test_file failed"
-              exit 1
-            fi
+         echo "Running QML Tests"
+         export DISPLAY=:99
+         for test_file in $GITHUB_WORKSPACE/tst_*.qml; do
+          echo "Running test $test_file"
+          qmltestrunner $test_file
+          if [ $? -ne 0 ]; then
+           echo "Test $test_file failed"
+           exit 1
+          fi
           done
           echo "All tests passed"
