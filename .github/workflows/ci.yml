@@ -26,11 +26,17 @@ jobs:
         run: echo "$HOME/Qt/6.7.0/gcc_64/bin" >> $GITHUB_PATH
 
       - name: Create build directory
-        run: mkdir build2
+        run: mkdir build
 
       - name: Build project
         run: |
-          cd build2
+          cd build
           export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
           qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
           make
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: build/
