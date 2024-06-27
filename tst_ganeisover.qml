@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtTest 1.0
 
 TestCase {
-    name: "GameIsOverTests"
+    name: "GaneIsOverTests"
 
     Item {
         id: testGame
