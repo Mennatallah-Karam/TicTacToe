@@ -26,11 +26,11 @@ jobs:
         run: echo "$HOME/Qt/6.7.0/gcc_64/bin" >> $GITHUB_PATH
 
       - name: Create build directory
-        run: mkdir build2
+        run: mkdir build
 
       - name: Build project
         run: |
-          cd build2
+          cd build
           export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
           qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
           make
@@ -59,10 +59,14 @@ jobs:
           echo "Running QML Tests"
           for test_file in $GITHUB_WORKSPACE/tst_*.qml; do
             echo "Running test $test_file"
-            xvfb-run -a qmltestrunner $test_file
+            xvfb-run -s "-screen 0 1024x768x16" qmltestrunner $test_file
             if [ $? -ne 0 ]; then
               echo "Test $test_file failed"
               exit 1
             fi
           done
           echo "All tests passed"
+
+
+
+
