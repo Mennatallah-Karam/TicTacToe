@@ -32,7 +32,7 @@ jobs:
         run: |
           cd build2
           export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
-          qmake ../qmakewithsounds.pro  # Replace with your actual .pro file name
+          qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
           make
 
       - name: Execute QML Tests
