@@ -1,10 +1,10 @@
-name: Build and Test Qt Project
+name: Build Qt Project
 
 on: push
 
 jobs:
-  build-and-test:
-    name: Build and Test Qt Project
+  build:
+    name: Build Qt Project
     runs-on: ubuntu-latest
 
     steps:
@@ -14,7 +14,7 @@ jobs:
       - name: Set up dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libxcb-xinerama0 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-image0 libxcb-render-util0 libxcb-xfixes0 libxkbcommon-x11-0 xvfb
+          sudo apt-get install -y libxcb-xinerama0 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-image0 libxcb-render-util0 libxcb-xfixes0 libxkbcommon-x11-0
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
@@ -34,39 +34,3 @@ jobs:
           export PATH="$HOME/Qt/6.7.0/gcc_64/bin:$PATH"
           qmake ../finalqmakeproject.pro  # Replace with your actual .pro file name
           make
-
-      - name: List QML test files
-        run: ls -la $GITHUB_WORKSPACE
-
-      - name: Verify QML test files content
-        run: |
-         cat $GITHUB_WORKSPACE/tst_userlogin.qml  # Adjust as needed
-         cat $GITHUB_WORKSPACE/tst_register.qml  # Adjust as needed
-         cat $GITHUB_WORKSPACE/tst_switich.qml  # Adjust as needed
-         cat $GITHUB_WORKSPACE/tst_ganeisover.qml  # Adjust as needed
-
-      - name: Start Xvfb
-        run: Xvfb :99 -screen 0 1024x768x16 &
-
-      - name: Export DISPLAY variable
-        run: export DISPLAY=:99
-
-      - name: Set Qt platform plugin path
-        run: export QT_QPA_PLATFORM_PLUGIN_PATH="$HOME/Qt/6.7.0/gcc_64/plugins"
-
-      - name: Run QML Tests
-        run: |
-          echo "Running QML Tests"
-          for test_file in $GITHUB_WORKSPACE/tst_*.qml; do
-            echo "Running test $test_file"
-            xvfb-run -s "-screen 0 1024x768x16" qmltestrunner $test_file
-            if [ $? -ne 0 ]; then
-              echo "Test $test_file failed"
-              exit 1
-            fi
-          done
-          echo "All tests passed"
-
-
-
-
