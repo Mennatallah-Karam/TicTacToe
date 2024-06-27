@@ -51,7 +51,5 @@ TestCase {
 
         // Simulate a mouse click on the login button
         QTest.mouseClick(loginButton, Qt.LeftButton)
-
-
     }
 }
